@@ -39,19 +39,7 @@ public class OnJOin implements Listener {
             ResultSet results = statement.executeQuery();
             results.next();
 
-            if (results.getString("team") == null) {
-                Bukkit.getScheduler().runTaskLater(plugin, new Runnable(){
-                    @Override
-                    public void run(){
-                        try {
-                            openinvteam(p);
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }, 20L);
-
-            } else if (results.getString("team").equals("b")){
+             if (results.getString("team").equals("b")){
                 zieloni.add(p.getName());
                 //--------Under Nick
                 OnClick.belowname(p,"Zieloni");
@@ -63,7 +51,19 @@ public class OnJOin implements Listener {
                 OnClick.scoreboard(p,"Zolci");
                 OnClick.belowname(p,"Zolci");
 
-            }
+            } if (results.getString("team") == null) {
+                Bukkit.getScheduler().runTaskLater(plugin, new Runnable(){
+                    @Override
+                    public void run(){
+                        try {
+                            openinvteam(p);
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }, 20L);
+
+            } else
         } catch (SQLException | IllegalArgumentException ex) {
             ex.printStackTrace();
         }
