@@ -72,7 +72,7 @@ public final class sm4 extends JavaPlugin {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://35.246.184.223:3306/bazka?autoReconnect=true", "koloksk", "qweasdzxc333");
+                    "jdbc:mysql:///bazka?autoReconnect=true", "koloksk", "qweasdzxc333");
 
         }catch(Exception e){ System.out.println(e);}
     }
